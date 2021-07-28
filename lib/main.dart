@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFitness',
       theme: ThemeData(
-        textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme).apply(
-          bodyColor: drawerTextColor,
-        ),
+        textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme).apply(
+        bodyColor: drawerTextColor,
+      ),
         //textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.white),
         primarySwatch: Colors.blue,
       ),

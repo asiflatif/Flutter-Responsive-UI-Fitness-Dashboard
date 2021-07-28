@@ -2,12 +2,18 @@ import 'package:fitness_web_ui/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final List<RadialChartData> chartData = <RadialChartData>[
+      RadialChartData('Calories', 75, const Color.fromRGBO(235, 97, 143, 1)),
+      RadialChartData('Steps', 80, const Color.fromRGBO(145, 132, 202, 1)),
+      RadialChartData('SpO2', 98, const Color.fromRGBO(69, 187, 161, 1)),
+    ];
     return Drawer(
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -24,7 +30,23 @@ class SideMenu extends StatelessWidget {
                       children: [
                         Column(
                           children: <Widget>[
-                            DrawerHeader(child: Container()),
+
+                            DrawerHeader(
+                                child: Container(
+                                    child: SfCircularChart(
+                                        legend: Legend(isVisible: true, position: LegendPosition.bottom,overflowMode: LegendItemOverflowMode.wrap),
+                                        series: <CircularSeries<RadialChartData, String>>[
+                                  RadialBarSeries<RadialChartData, String>(
+                                    enableTooltip: true,
+                                      maximumValue: 100,
+                                      radius: '100%',
+                                      gap: '10%',
+                                      dataSource: chartData,
+                                      cornerStyle: CornerStyle.bothCurve,
+                                      xValueMapper: (RadialChartData data, _) => data.x,
+                                      yValueMapper: (RadialChartData data, _) => data.y,
+                                      pointColorMapper: (RadialChartData data, _) => data.color)
+                                ]))),
                             DrawerListTile(
                               opacityGrade: 1.0,
                               title: "Activity",
@@ -64,12 +86,15 @@ class SideMenu extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Image.asset("assets/images/nav_img.png",),
+                              Image.asset(
+                                "assets/images/nav_img.png",
+                              ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   "Change dashboard settings from here",
-                                  style: TextStyle(color: TextColor,fontSize: 12.0),textAlign: TextAlign.center,
+                                  style: TextStyle(color: TextColor, fontSize: 12.0),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                               Container(
@@ -129,4 +154,12 @@ class DrawerListTile extends StatelessWidget {
       ),
     );
   }
+}
+
+class RadialChartData {
+  RadialChartData(this.x, this.y, this.color);
+
+  final String x;
+  final double y;
+  final Color color;
 }
