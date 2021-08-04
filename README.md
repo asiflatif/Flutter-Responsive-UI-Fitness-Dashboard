@@ -12,7 +12,7 @@ A Responsive User Interface Dashboard for a Fitness Website. Most images & icons
 
 ### Preview: Flutter Responsive UI- Fitness Dashboard
 
-![Preview](/gif.gif)
+![Preview](/demo.gif)
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
