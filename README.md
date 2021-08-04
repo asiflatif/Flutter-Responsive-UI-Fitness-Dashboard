@@ -1,15 +1,18 @@
-# fitness_web_ui
+# Flutter Responsive UI- Fitness Dashboard
 
-User Interface for a Fitness Website 
+A Responsive User Interface Dashboard for a Fitness Website. Most images & icons are collected from [link](https://www.flaticon.com)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+**Packages
 
-A few resources to get you started if this is your first Flutter project:
+-syncfusion_flutter_charts: [link](https://pub.dev/packages/syncfusion_flutter_charts)
+-percent_indicator: [link](https://pub.dev/packages/percent_indicator)
+-flutter_svg: [link](https://pub.dev/packages/flutter_svg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Preview: Flutter Responsive UI- Fitness Dashboard
+
+![Preview](/gif.gif)
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,

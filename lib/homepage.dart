@@ -1,7 +1,7 @@
-import 'package:fitness_web_ui/components/dashboard.dart';
-import 'package:fitness_web_ui/responsive.dart';
-import 'package:fitness_web_ui/components/sideMenu.dart';
+import 'package:fitness_web_ui/widgets/dashboard.dart';
+import 'package:fitness_web_ui/utils/responsive.dart';
 import 'package:fitness_web_ui/utils/MenuController.dart';
+import 'package:fitness_web_ui/widgets/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,14 +19,18 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: context.read<MenuController>().scaffoldKey,
       drawer: SideMenu(),
-      body: SafeArea(child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if(Responsive.isDesktop(context))
-            Expanded(child: SideMenu()),
-          Expanded(child: Dashboard(),flex: 5,)
-        ],
-      ), ),
+      body: SafeArea(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (Responsive.isDesktop(context)) Expanded(child: SideMenu()),
+            Expanded(
+              child: Dashboard(),
+              flex: 5,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

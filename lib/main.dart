@@ -17,11 +17,12 @@ class MyApp extends StatelessWidget {
       title: 'MyFitness',
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme).apply(
-        bodyColor: drawerTextColor,
-      ),
+          bodyColor: drawerTextColor,
+        ),
         //textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.white),
         primarySwatch: Colors.blue,
       ),
+
       home: MultiProvider(
           providers: [ChangeNotifierProvider(create: (context) => MenuController())], child: HomePage()),
     );

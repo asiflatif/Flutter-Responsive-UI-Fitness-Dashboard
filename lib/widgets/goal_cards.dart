@@ -1,3 +1,4 @@
+import 'package:fitness_web_ui/utils/responsive.dart';
 import 'package:fitness_web_ui/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,8 @@ class GoalCards extends StatelessWidget {
       this.percentageCompleted,
       this.goal,
       this.leftThisWeek,
-      this.completed, this.percent})
+      this.completed,
+      this.percent})
       : super(key: key);
   final double percent;
   final IconData icon;
@@ -23,39 +25,32 @@ class GoalCards extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        Container(
-          margin: EdgeInsets.only(left: 20),
-          padding: EdgeInsets.all(defaultPadding),
-          decoration: BoxDecoration(
-              color: backgroundColor,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 5,
-                  blurRadius: 15,
-                  offset: Offset(0, 3),
-                ),
-              ],
-              borderRadius: BorderRadius.circular(defaultPadding)),
-          height: 120,
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  percentageCompleted,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                ),
-                Text(
-                  goal,
-                  style: TextStyle(color: TextColor),
-                  textAlign: TextAlign.center,
-                )
-              ],
+        if (!Responsive.isMobile(context))
+          Container(
+            margin: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.all(defaultPadding),
+            decoration: BoxDecoration(
+                color: backgroundColor,
+                borderRadius: BorderRadius.circular(defaultPadding)),
+            height: 120,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    percentageCompleted,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                  ),
+                  Text(
+                    goal,
+                    style: TextStyle(color: TextColor),
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
             ),
           ),
-        ),
         Container(
             padding: EdgeInsets.fromLTRB(20, 10, 10, 10),
             child: Row(
@@ -120,10 +115,16 @@ class GoalCards extends StatelessWidget {
                 ),
               ],
             ),
-            decoration:
-                BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(defaultPadding)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.3),
+                spreadRadius: 5,
+                blurRadius: 15,
+                offset: Offset(0, 3),
+              ),
+            ], color: Colors.white, borderRadius: BorderRadius.circular(defaultPadding)),
             height: 120,
-            margin: EdgeInsets.only(right: 120, left: 20)),
+            margin: EdgeInsets.only(right: Responsive.isMobile(context) ? 0 : 120, left: 20)),
         Align(
           alignment: Alignment.centerLeft,
           child: Container(
