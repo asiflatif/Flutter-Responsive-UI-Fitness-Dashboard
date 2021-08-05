@@ -51,7 +51,7 @@ class GridItems extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(6.0),
                         child: TextButton(
                           onPressed: () {},
                           child: Text(

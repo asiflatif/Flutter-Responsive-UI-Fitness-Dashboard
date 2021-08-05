@@ -2,6 +2,8 @@
 
 A Responsive User Interface Dashboard for a Fitness Website. Most images & icons are collected from [link](https://www.flaticon.com)
 
+![Preview](/preview_image.png)
+
 ## Getting Started
 
 **Packages
